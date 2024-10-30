@@ -23,7 +23,7 @@ jobs:
                   chmod 600 ~/.ssh/*
 
             - name: Transfer files
-              run: scp -r php_blog/* user@4.246.190.23:/APP
+              run: scp -r php_blog/* root@4.246.190.23:/APP
 
               
 

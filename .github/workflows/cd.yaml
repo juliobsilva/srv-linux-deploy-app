@@ -23,6 +23,7 @@ jobs:
 
             - name: Transfer files
               run: scp -r php_blog/* root@4.246.190.23:/APP
+            
 
               
 

@@ -17,7 +17,7 @@ jobs:
                   SSH_KNOW_HOSTS: ${{ secrets.SSH_KNOW_HOSTS }}
               run: |
                   mkdir -p ~/.ssh
-                  echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+                  echo "$SSH_PUBLIC_KEY" > ~/.ssh/id_rsa
                   chmod 600 ~/.ssh/id_rsa
                   ssh-keyscan -H 4.246.190.23 >> ~/.ssh/known_hosts
 

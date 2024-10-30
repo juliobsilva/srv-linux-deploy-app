@@ -6,28 +6,21 @@ on:
       - main
 
 jobs:
-    deploy:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-            - name: Configure SSh
-              env:
-                  SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
-                  SSH_KNOW_HOSTS: ${{ secrets.SSH_KNOW_HOSTS }}
-              run: |
-                  mkdir -p ~/.ssh
-                  echo "$SSH_PUBLIC_KEY" > ~/.ssh/id_rsa
-                  chmod 600 ~/.ssh/id_rsa
-                  ssh-keyscan -H 4.246.190.23 >> ~/.ssh/known_hosts
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 4.246.190.23 >> ~/.ssh/known_hosts
 
-            - name: Transfer files
-              run: scp -r php_blog/* root@4.246.190.23:/APP
-            
-
-              
-
-                
-
-          
-    
+      - name: Transfer files
+        run: scp -r php_blog/* root@4.246.190.23:/APP

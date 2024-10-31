@@ -23,6 +23,6 @@ jobs:
           ssh-keyscan -H 4.246.190.23 >> ~/.ssh/known_hosts
 
       - name: Transfer files
-        run: sudo scp -o StrictHostKeyChecking=no -r php_blog/* root@4.246.190.23:/var/www/html/
+        run: sudo scp -r php_blog/* root@4.246.190.23:/var/www/html/
 
         

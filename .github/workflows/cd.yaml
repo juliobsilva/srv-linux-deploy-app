@@ -15,14 +15,10 @@ jobs:
       - name: Configure SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          # Adiciona o host ao known_hosts para evitar o erro de verificação de host
-          ssh-keyscan -H 4.246.190.23 >> ~/.ssh/known_hosts
+        run: |          
+          ssh -i ${{env.SSH_PRIVATE_KEY}} juliobsilva@4.246.190.23
 
       - name: Transfer files
-        run: sudo scp -r php_blog/* root@4.246.190.23:/var/www/html/
+        run: sudo scp -r php_blog/* juliobsilva@4.246.190.23:/var/www/html/
 
         

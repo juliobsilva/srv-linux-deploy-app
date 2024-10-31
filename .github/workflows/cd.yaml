@@ -17,7 +17,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           ls -lha          
-          ssh -i ./php.pem juliobsilva@4.246.190.23
+          ssh -i php.pem juliobsilva@4.246.190.23
 
       - name: Transfer files
         run: sudo scp -r php_blog/* juliobsilva@4.246.190.23:/var/www/html/

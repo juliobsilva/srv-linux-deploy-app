@@ -18,6 +18,7 @@ jobs:
           chmod 600 php.pem
           IP_DO_SERVIDOR="4.246.190.23"
           ssh -o StrictHostKeyChecking=no -i php.pem juliobsilva@$IP_DO_SERVIDOR
+          ls -la
 
       # - name: Transfer files
       #   run: |

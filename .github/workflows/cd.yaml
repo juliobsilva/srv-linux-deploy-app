@@ -16,13 +16,11 @@ jobs:
         run: |
           echo "$SSH_PRIVATE_KEY" > php.pem
           chmod 600 php.pem
+          SECRET=$(echo "$SSH_PRIVATE_KEY" > php.pem)
           IP_DO_SERVIDOR="4.246.190.23"
-          ssh -o StrictHostKeyChecking=no -i php.pem juliobsilva@$IP_DO_SERVIDOR
-          sudo scp -o StrictHostKeyChecking=no -i php.pem -r php_blog/* juliobsilva@4.246.190.23:/var/www/blog/
+          ssh -o StrictHostKeyChecking=no -i php.pem juliobsilva@$IP_DO_SERVIDOR     
          
-          
-
-      # - name: Transfer files
-      #   run: |
-          
+      - name: Transfer files
+        run: |
+          sudo scp -o StrictHostKeyChecking=no -i $SECRET -r php_blog/* juliobsilva@4.246.190.23:/var/www/blog/
 

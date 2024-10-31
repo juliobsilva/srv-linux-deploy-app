@@ -24,5 +24,5 @@ jobs:
           chmod 644 ~/.ssh/known_hosts
 
       - name: Transfer files
-        run: scp -r php_blog/* root@4.246.190.23:/var/www/html/
+        run: sudo scp -r php_blog/* root@4.246.190.23:/var/www/html/
 

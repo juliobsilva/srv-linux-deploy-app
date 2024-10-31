@@ -11,8 +11,8 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Blog</title>
 </head>
 <body>
-    <h1>Blog</h1>
-    <a href="new_post.php">Criar Nova Postagem</a>
+    <h1>Blog do Julio</h1>
+    <a href="new_post.php">Criar Nova Fofoca</a>
     <hr>
 
     <?php foreach ($posts as $post): ?>

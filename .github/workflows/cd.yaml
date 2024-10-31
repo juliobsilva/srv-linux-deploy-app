@@ -21,8 +21,8 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H 4.246.190.23 >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
 
       - name: Transfer files
         run: scp -r php_blog/* root@4.246.190.23:/var/www/html/
 
-        

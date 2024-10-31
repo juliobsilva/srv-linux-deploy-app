@@ -19,7 +19,7 @@ jobs:
           pwd
           ls -lha
           IP_DO_SERVIDOR="4.246.190.23"         
-          ssh -i ~/php.pem juliobsilva@$IP_DO_SERVIDOR
+          ssh -i php.pem juliobsilva@$IP_DO_SERVIDOR
 
       - name: Transfer files
         run: sudo scp -r php_blog/* juliobsilva@4.246.190.23:/var/www/html/

@@ -24,4 +24,5 @@ jobs:
 
       - name: Transfer files
         run: sudo scp -o StrictHostKeyChecking=no -r php_blog/* root@4.246.190.23:/var/www/html/
+
         

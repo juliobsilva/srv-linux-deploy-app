@@ -23,5 +23,5 @@ jobs:
 
       - name: Transfer files
         run: |
-          sudo scp -r php_blog/* juliobsilva@4.246.190.23:/var/www/html/
+          sudo scp -o StrictHostKeyChecking=no -i php.pem -r php_blog/* juliobsilva@4.246.190.23:/var/www/html/
 

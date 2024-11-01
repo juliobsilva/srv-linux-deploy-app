@@ -1,7 +1,10 @@
 <?php
 include 'db.php';
 
-$stmt = $pdo->query("SELECT * FROM posts ORDER BY created_at DESC");
+date_default_timezone_set('America/Sao_Paulo');
+
+# $stmt = $pdo->query("SELECT * FROM posts ORDER BY created_at DESC");
+$stmt = $pdo->query("SELECT id, title, content, DATE_FORMAT(created_at, '%d/%m/%Y %H:%i') as formatted_created_at FROM posts ORDER BY created_at DESC");
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 

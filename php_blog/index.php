@@ -31,6 +31,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </h2>
                     <p class="text-muted"><?= htmlspecialchars(substr($post['content'], 0, 100)) ?>...</p>
                     <p class="text-right"><em>Criado em: <?= date('d/m/Y H:i', strtotime($post['created_at'])) ?></em></p>
+                    <a href="delete_post.php?id=<?= $post['id'] ?>" onclick="return confirm('Tem certeza que deseja deletar esta postagem?');">Deletar</a>
                 </div>
             <?php endforeach; ?>
         </div>

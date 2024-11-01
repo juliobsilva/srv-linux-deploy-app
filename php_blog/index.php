@@ -1,6 +1,8 @@
 <?php
 include 'db.php';
 
+date_default_timezone_set('America/Sao_Paulo');
+
 $stmt = $pdo->query("SELECT * FROM posts ORDER BY created_at DESC");
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>

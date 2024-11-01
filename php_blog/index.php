@@ -17,7 +17,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body class="bg-light">
 
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Blog do Julio</h1>
+        <h1 class="text-center mb-4">Blog da Fofoca</h1>
         
         <div class="text-center mb-4">
             <a href="new_post.php" class="btn btn-primary">Criar Nova Fofoca</a>

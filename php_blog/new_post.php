@@ -16,10 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Criar Nova Postagem</title>
+    <title>Criar Nova Fofoca</title>
 </head>
 <body>
-    <h1>Criar Nova Postagem</h1>
+    <h1>Criar Nova Fofoca</h1>
     <form action="new_post.php" method="post">
         <label for="title">Título:</label><br>
         <input type="text" id="title" name="title" required><br><br>

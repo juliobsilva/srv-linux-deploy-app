@@ -6,20 +6,40 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog da Fofoca</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Blog do Julio</h1>
-    <a href="new_post.php">Criar Nova Fofoca</a>
-    <hr>
+<body class="bg-light">
 
-    <?php foreach ($posts as $post): ?>
-        <h2><a href="post.php?id=<?= $post['id'] ?>"><?= htmlspecialchars($post['title']) ?></a></h2>
-        <p><?= htmlspecialchars(substr($post['content'], 0, 100)) ?>...</p>
-        <p><em>Criado em: <?= $post['created_at'] ?></em></p>
-        <hr>
-    <?php endforeach; ?>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Blog do Julio</h1>
+        
+        <div class="text-center mb-4">
+            <a href="new_post.php" class="btn btn-primary">Criar Nova Fofoca</a>
+        </div>
+        
+        <div class="list-group">
+            <?php foreach ($posts as $post): ?>
+                <div class="list-group-item mb-3">
+                    <h2 class="h5">
+                        <a href="post.php?id=<?= $post['id'] ?>" class="text-decoration-none"><?= htmlspecialchars($post['title']) ?></a>
+                    </h2>
+                    <p class="text-muted"><?= htmlspecialchars(substr($post['content'], 0, 100)) ?>...</p>
+                    <p class="text-right"><em>Criado em: <?= date('d/m/Y H:i', strtotime($post['created_at'])) ?></em></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
